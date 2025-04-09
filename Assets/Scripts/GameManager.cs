@@ -13,14 +13,16 @@ public class GameManager : MonoBehaviour
     public Animator countdownAnimator;
 
     public Text timeTxt;
-    public Text countdownText;
-    public Text feedbackText;
+    public Text countdownTxt;
+    public Text feedbackTxt;
     public Text resultTxt;
 
     public GameObject clearPanel;
     public GameObject failedPanel;
     public GameObject startPanel;
 
+    public ResultText resultText;
+    public FeedbackText feedbackText;
     public Card firstCard;
     public Card secondCard;
     public Board board;
@@ -29,7 +31,6 @@ public class GameManager : MonoBehaviour
 
     // private variables
     private bool isPlay = false;
-    private bool isGameOver = false;
     private float time;
 
 
@@ -58,16 +59,16 @@ public class GameManager : MonoBehaviour
     {
 
         // 게임이 시작된 상태일 경우에만 시간 흐르도록
-        if (!isPlay || isGameOver) return;
+        if (!isPlay) return;
 
         time -= Time.deltaTime;
         timeTxt.text = time.ToString("N2");
 
+        // 게임 Failed
         if (time <= 0f)
         {
             time = 0f;
 
-            isGameOver = true;
             isPlay = false;
             canClick = false;
 
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
         // 일치한다면
         if (firstCard.index == secondCard.index)
         {
-            FeedbackText.instance.Show("정답!", new Color(0.42f, 0.73f, 0.29f));
+            feedbackText.Show("정답!", new Color(0.42f, 0.73f, 0.29f));
 
             // 카드 파괴
             firstCard.DestroyCard();
@@ -115,7 +116,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            FeedbackText.instance.Show("다시!", new Color(1f, 0.4f, 0.5f));
+            feedbackText.Show("다시!", new Color(1f, 0.4f, 0.5f));
 
             // 카드 닫기
             firstCard.CloseCard();
@@ -138,14 +139,14 @@ public class GameManager : MonoBehaviour
 
         // 카운트다운 패널 켜기
         startPanel.SetActive(true);
-        countdownText.gameObject.SetActive(true);
+        countdownTxt.gameObject.SetActive(true);
 
         // 글자 띄우기
         string[] messages = { " ", "3", "2", "1", "START!" };
 
         foreach (string msg in messages)
         {
-            countdownText.text = msg;
+            countdownTxt.text = msg;
             countdownAnimator.SetTrigger("Pop");
 
             yield return new WaitForSecondsRealtime(1.0f);
@@ -153,7 +154,7 @@ public class GameManager : MonoBehaviour
 
         // 카운트다운 패널 끄기
         startPanel.SetActive(false);
-        countdownText.gameObject.SetActive(false);
+        countdownTxt.gameObject.SetActive(false);
 
         // 게임 시간 흐르도록
         Time.timeScale = 1.0f;
@@ -174,12 +175,8 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0.0f;
 
-        // 텍스트 설정
-        resultTxt.gameObject.SetActive(true);
-        resultTxt.text = message;
-
-        // Pop 애니메이션 실행
-        resultTxt.GetComponent<Animator>().SetTrigger("Pop");
+        resultText.gameObject.SetActive(true);
+        resultText.Show(message);
 
         yield return new WaitForSecondsRealtime(3.0f);
 
