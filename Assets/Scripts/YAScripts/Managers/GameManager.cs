@@ -179,6 +179,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(3.0f);
 
+        
         resultPanel.SetActive(true);
 
     }
