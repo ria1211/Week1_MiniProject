@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Card : MonoBehaviour
@@ -13,11 +12,18 @@ public class Card : MonoBehaviour
 
     public int index = 0;
 
+
     // front image setting
     public void Setting(int number)
     {
+        string stageName = SceneManager.GetActiveScene().name;
+        string code = stageName[^2..];
+       
+
         index = number;
-        frontImage.sprite = Resources.Load<Sprite>($"team{index}");
+        string path = $"{code}/{code}{number}";
+
+        frontImage.sprite = Resources.Load<Sprite>(path);
     }
 
     // 카드 열기
