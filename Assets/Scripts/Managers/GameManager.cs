@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -130,6 +131,7 @@ public class GameManager : MonoBehaviour
             // 카드 전부 뒤집으면 게임 끝내는 함수 호출
             if (cardCount == 0)
             {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Clear", 1);
                 StartCoroutine(GameEnd("CLEAR!", clearPanel));
             }
         }

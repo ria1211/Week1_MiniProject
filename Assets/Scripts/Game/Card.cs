@@ -53,7 +53,7 @@ public class Card : MonoBehaviour
     {
         // 카드 클릭 가능한 상태일 때만 OpenCard 실행
         if (!GameManager.instance.canClick) return;
-        
+
         OpenCard();
     }
 

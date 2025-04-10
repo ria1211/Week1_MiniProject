@@ -3,7 +3,7 @@ using DG.Tweening;
 
 public class StageSlider : MonoBehaviour
 {
-    public Transform previewContainer; // 프리뷰를 감싸는 부모 오브젝트
+    public Transform previewContainer; // 프리뷰 부모 오브젝트
     public float spacing = 6f;         // 프리뷰 간 거리
     public float slideTime = 0.3f;     // 슬라이드 속도
 
@@ -20,7 +20,7 @@ public class StageSlider : MonoBehaviour
 
     public void SlideRight()
     {
-        if (currentIndex < previewContainer.childCount - 1)
+        if (currentIndex < 4)
         {
             currentIndex++;
             SlideToCurrent();
@@ -34,8 +34,16 @@ public class StageSlider : MonoBehaviour
         previewContainer.DOLocalMove(targetPos, slideTime).SetEase(Ease.OutQuart);
     }
 
+    public void MoveToHidden()
+    {
+        currentIndex = 5;
+        SlideToCurrent();
+    }
+
     public int GetCurrentIndex()
     {
         return currentIndex;
     }
+
+    
 }
