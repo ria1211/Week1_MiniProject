@@ -15,9 +15,7 @@ public class StageSlider : MonoBehaviour
 
     private void Start()
     {
-        int savedIndex = PlayerPrefs.GetInt("LastPlayerIndex", 0);
-        currentIndex = savedIndex;
-        SlideToCurrent();
+
     }
 
     public void SlideLeft()
@@ -42,9 +40,10 @@ public class StageSlider : MonoBehaviour
     {
         float targetX = -currentIndex * Spacing;
         Vector3 targetPos = new Vector3(targetX, 0f, 0f);
-        previewContainer.transform.position = targetPos;
-        //previewContainer.DOLocalMove(targetPos, SlideTime).SetEase(Ease.OutQuart);
-        Debug.Log($"{targetX}, {currentIndex}, {Spacing}");
+        previewContainer
+            .DOLocalMove(targetPos, SlideTime)
+            .SetEase(Ease.OutQuart)
+            .SetUpdate(true);
     }
 
     public void MoveToHidden()
@@ -58,5 +57,9 @@ public class StageSlider : MonoBehaviour
         return currentIndex;
     }
 
-    
+    public void ResetToIndex(int index)
+    {
+        currentIndex = index;
+        SlideToCurrent();
+    }
 }

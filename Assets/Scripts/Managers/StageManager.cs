@@ -13,6 +13,9 @@ public class StageManager : MonoBehaviour
     void Start()
     {
 
+        int savedIndex = PlayerPrefs.GetInt("LastPlayedIndex", 0);
+        stageSlider.ResetToIndex(savedIndex);
+
         if (!HiddenStageActive()) return;
 
         hiddenBtn.interactable = HiddenStageActive();
