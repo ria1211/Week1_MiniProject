@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
         // 일치한다면
         if (firstCard.index == secondCard.index)
         {
-            feedbackText.Show("정답!", new Color(0.42f, 0.73f, 0.29f));
+            feedbackText.Show("정답!", new Color(255,255,255));
 
             // 카드 파괴
             firstCard.DestroyCard();
@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            feedbackText.Show("다시!", new Color(1f, 0.4f, 0.5f));
+            feedbackText.Show("다시!", new Color(255, 255, 255));
 
             // 카드 닫기
             firstCard.CloseCard();

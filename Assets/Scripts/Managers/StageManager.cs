@@ -7,7 +7,6 @@ public class StageManager : MonoBehaviour
 {
     public StageSlider stageSlider;
     public List<Transform> previewObjects;
-    public GameObject hiddenStagePreview;
 
     public Button hiddenBtn;
 
@@ -16,7 +15,6 @@ public class StageManager : MonoBehaviour
 
         if (!HiddenStageActive()) return;
 
-        hiddenStagePreview.SetActive(true);
         hiddenBtn.interactable = HiddenStageActive();
 
     }
@@ -46,5 +44,22 @@ public class StageManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void UnlockHiddenStageDebug()
+    {
+        PlayerPrefs.SetInt("StageYA_Clear", 1);
+        PlayerPrefs.SetInt("StageDE_Clear", 1);
+        PlayerPrefs.SetInt("StageKY_Clear", 1);
+        PlayerPrefs.SetInt("StageYJ_Clear", 1);
+        PlayerPrefs.SetInt("StageMJ_Clear", 1);
+
+        Debug.Log("히든 스테이지 강제 해금 완료");
+
+        // 강제로 UI 다시 검사
+        if (HiddenStageActive())
+        {
+            hiddenBtn.interactable = true;
+        }
     }
 }
