@@ -10,8 +10,6 @@ public class AudioManager : MonoBehaviour
 
     AudioSource alertSource;
     public AudioClip Alert;
-    public Text timeText;
-
     private void Awake()
     {
         if (instance == null)
