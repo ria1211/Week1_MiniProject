@@ -1,13 +1,24 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Xml.Serialization;
 
 public class StageSlider : MonoBehaviour
 {
+   
+    public static float Spacing = 6f;         // 프리뷰 간 거리
+    public static float SlideTime = 0.3f;     // 슬라이드 속도
+
     public Transform previewContainer; // 프리뷰 부모 오브젝트
-    public float spacing = 6f;         // 프리뷰 간 거리
-    public float slideTime = 0.3f;     // 슬라이드 속도
 
     public int currentIndex = 0;
+
+
+    private void Start()
+    {
+        int savedIndex = PlayerPrefs.GetInt("LastPlayerIndex", 0);
+        currentIndex = savedIndex;
+        SlideToCurrent();
+    }
 
     public void SlideLeft()
     {
@@ -29,9 +40,11 @@ public class StageSlider : MonoBehaviour
 
     private void SlideToCurrent()
     {
-        float targetX = -currentIndex * spacing;
+        float targetX = -currentIndex * Spacing;
         Vector3 targetPos = new Vector3(targetX, 0f, 0f);
-        previewContainer.DOLocalMove(targetPos, slideTime).SetEase(Ease.OutQuart);
+        previewContainer.transform.position = targetPos;
+        //previewContainer.DOLocalMove(targetPos, SlideTime).SetEase(Ease.OutQuart);
+        Debug.Log($"{targetX}, {currentIndex}, {Spacing}");
     }
 
     public void MoveToHidden()

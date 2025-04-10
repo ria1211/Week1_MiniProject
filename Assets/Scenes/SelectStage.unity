@@ -512,8 +512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previewContainer: {fileID: 2147404992}
-  spacing: 6
-  slideTime: 0.3
   currentIndex: 0
 --- !u!1 &1078764871
 GameObject:
@@ -1201,8 +1199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previewContainer: {fileID: 2147404992}
-  spacing: 6
-  slideTime: 0.3
   currentIndex: 0
 --- !u!4 &2147404992
 Transform:
@@ -1315,7 +1311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5054096696008860863, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_Name
-      value: hiddenButton
+      value: HiddenButton
       objectReference: {fileID: 0}
     - target: {fileID: 5054096696008860863, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_IsActive
@@ -1436,6 +1432,10 @@ PrefabInstance:
     - target: {fileID: 7953157732773176976, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530973517442537964, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
+      propertyPath: m_Name
+      value: RedButton
       objectReference: {fileID: 0}
     - target: {fileID: 8759604912529535703, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_AnchoredPosition.x

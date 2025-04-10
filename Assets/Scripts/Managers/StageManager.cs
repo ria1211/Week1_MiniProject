@@ -22,6 +22,7 @@ public class StageManager : MonoBehaviour
     public void LoadCurrentStage()
     {
         int index = stageSlider.GetCurrentIndex();
+        PlayerPrefs.SetInt("LastPlayedIndex", index);
 
         string sceneName = previewObjects[index].name;
         SceneManager.LoadScene(sceneName);
