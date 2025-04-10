@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
     public List<Transform> previewObjects;
 
     public Button hiddenBtn;
+    public GameObject testBtn;
 
     void Start()
     {
@@ -20,6 +21,14 @@ public class StageManager : MonoBehaviour
 
         hiddenBtn.interactable = HiddenStageActive();
 
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            testBtn.SetActive(!testBtn.activeSelf);
+        }
     }
 
     public void LoadCurrentStage()
@@ -54,7 +63,7 @@ public class StageManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("StageYA_Clear", 1);
         PlayerPrefs.SetInt("StageDE_Clear", 1);
-        PlayerPrefs.SetInt("StageKY_Clear", 1);
+        PlayerPrefs.SetInt("StageGY_Clear", 1);
         PlayerPrefs.SetInt("StageYJ_Clear", 1);
         PlayerPrefs.SetInt("StageMJ_Clear", 1);
 

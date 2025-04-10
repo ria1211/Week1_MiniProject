@@ -413,6 +413,7 @@ MonoBehaviour:
   - {fileID: 1910649137}
   - {fileID: 875965570}
   hiddenBtn: {fileID: 1920313930}
+  testBtn: {fileID: 1081057748}
 --- !u!114 &918903258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +512,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1081057748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3861511712376947035, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
+  m_PrefabInstance: {fileID: 2710375722676440047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1159453675
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +528,7 @@ GameObject:
   - component: {fileID: 1159453676}
   - component: {fileID: 1159453677}
   m_Layer: 0
-  m_Name: StageKY
+  m_Name: StageGY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,6 +1024,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 918903258}
+    - target: {fileID: 3861511712376947035, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4284085623740973900, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1115,7 +1125,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2782534853467102294, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
