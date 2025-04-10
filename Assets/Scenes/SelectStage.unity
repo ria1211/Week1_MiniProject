@@ -424,9 +424,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c82f68cdcfb0c4eaa5ce6d2ab0abfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previewContainer: {fileID: 0}
+  previewContainer: {fileID: 2147404992}
   spacing: 6
   slideTime: 0.3
+  currentIndex: 0
 --- !u!1 &1078764871
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +775,7 @@ GameObject:
   - component: {fileID: 2009002490}
   - component: {fileID: 2009002491}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -788,12 +789,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009002489}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.71, z: 0}
   m_LocalScale: {x: 5.2, y: 6.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2147404992}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2009002491
 SpriteRenderer:
@@ -835,7 +836,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -971,6 +972,7 @@ MonoBehaviour:
   previewContainer: {fileID: 2147404992}
   spacing: 6
   slideTime: 0.3
+  currentIndex: 0
 --- !u!4 &2147404992
 Transform:
   m_ObjectHideFlags: 0
@@ -990,7 +992,6 @@ Transform:
   - {fileID: 1239288831}
   - {fileID: 1910649137}
   - {fileID: 875965570}
-  - {fileID: 2009002490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2710375722676440047
@@ -1015,12 +1016,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3914476258310616571, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4284085623740973900, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2147404991}
+      objectReference: {fileID: 918903258}
+    - target: {fileID: 4284085623740973900, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SlideLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 5205105028734181137, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 250
@@ -1044,7 +1049,11 @@ PrefabInstance:
     - target: {fileID: 5398136432649722339, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2147404991}
+      objectReference: {fileID: 918903258}
+    - target: {fileID: 5398136432649722339, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SlideRight
+      objectReference: {fileID: 0}
     - target: {fileID: 5758467519819278102, guid: c5fb6c8ae64a0144eb1beea446a6ceaa, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1149,5 +1158,6 @@ SceneRoots:
   - {fileID: 2064553219}
   - {fileID: 918903256}
   - {fileID: 472414065}
+  - {fileID: 2009002490}
   - {fileID: 2710375722676440047}
   - {fileID: 2147404992}

@@ -7,7 +7,7 @@ public class StageSlider : MonoBehaviour
     public float spacing = 6f;         // 프리뷰 간 거리
     public float slideTime = 0.3f;     // 슬라이드 속도
 
-    private int currentIndex = 0; // 처음에 중앙이 YA이니까 index = 2
+    public int currentIndex = 0;
 
     public void SlideLeft()
     {

@@ -17,7 +17,7 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         index = number;
-        frontImage.sprite = Resources.Load<Sprite>($"yuna{index}");
+        frontImage.sprite = Resources.Load<Sprite>($"team{index}");
     }
 
     // 카드 열기

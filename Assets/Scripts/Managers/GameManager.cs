@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     // public variables
     public static GameManager instance;
 
-    public Animator countdownAnimator;
+    public Animator countdownAnim;
+    public Animator panelAnim;
     public AudioSource warning;
 
     private Tween blinkTween;
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
     public GameObject clearPanel;
     public GameObject failedPanel;
     public GameObject startPanel;
+    public GameObject textContainer;
+    public GameObject boardobject;
+    public GameObject panelcontainer;
 
     public ResultText resultText;
     public FeedbackText feedbackText;
@@ -54,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // 전부 초기화
         time = 30.0f;
         originalColor = timeTxt.color;
 
@@ -161,7 +166,7 @@ public class GameManager : MonoBehaviour
         foreach (string msg in messages)
         {
             countdownTxt.text = msg;
-            countdownAnimator.SetTrigger("Pop");
+            countdownAnim.SetTrigger("Pop");
 
             yield return new WaitForSecondsRealtime(1.0f);
         }
@@ -185,7 +190,11 @@ public class GameManager : MonoBehaviour
     // 게임 종료 처리
     IEnumerator GameEnd(string message, GameObject resultPanel)
     {
+        // 뒷배경 전부 off 
+        textContainer.SetActive(false);
+        boardobject.SetActive(false);
 
+        // 소리 stop
         StopWarningEffect();
         warning.Stop();
 
@@ -199,6 +208,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(3.0f);
 
+        panelcontainer.SetActive(true);
         resultPanel.SetActive(true);
     }
 

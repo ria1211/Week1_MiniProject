@@ -11,4 +11,9 @@ public class ResultText : MonoBehaviour
         GetComponent<Text>().text = message;
         GetComponent<Animator>().SetTrigger("Show");
     }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
 }

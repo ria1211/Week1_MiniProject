@@ -5,6 +5,11 @@ public class RetryButton : MonoBehaviour
 {
     public void Retry()
     {
-        SceneManager.LoadScene("Stage_YA");
+        SceneManager.LoadScene("StageHD");
+    }
+
+    public void SelectStage()
+    {
+        SceneManager.LoadScene("SelectStage");
     }
 }
