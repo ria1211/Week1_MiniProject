@@ -1,16 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
     // public variables
     public static GameManager instance;
 
-    public int cardCount = 12;
-
     public Animator countdownAnimator;
+    public AudioSource warning;
+
+    private Tween blinkTween;
 
     public Text timeTxt;
     public Text countdownTxt;
@@ -27,10 +28,15 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
     public Board board;
 
+    public int cardCount = 12;
     public bool canClick = true;
 
     // private variables
+    private Color originalColor;
+
     private bool isPlay = false;
+    private bool isWarning = false;
+
     private float time;
 
 
@@ -49,9 +55,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         time = 30.0f;
+        originalColor = timeTxt.color;
 
         // 카운트다운 함수 실행
         StartCoroutine(StartCountdown());
+
     }
 
     private void Update()
@@ -63,6 +71,13 @@ public class GameManager : MonoBehaviour
         time -= Time.deltaTime;
         timeTxt.text = time.ToString("N2");
 
+        // 경고 시점 처리
+        if (!isWarning && time <= 10f && time > 0f)
+        {
+            isWarning = true;
+            TriggerWarningEffect();
+        }
+
         // 게임 Failed
         if (time <= 0f)
         {
@@ -71,7 +86,7 @@ public class GameManager : MonoBehaviour
             isPlay = false;
             canClick = false;
 
-            StartCoroutine(GameEnd("GAME\nOVER", failedPanel));
+            StartCoroutine(GameEnd("GAME OVER", failedPanel));
         }
     }
 
@@ -170,6 +185,11 @@ public class GameManager : MonoBehaviour
     // 게임 종료 처리
     IEnumerator GameEnd(string message, GameObject resultPanel)
     {
+
+        StopWarningEffect();
+        warning.Stop();
+
+
         yield return new WaitForSeconds(0.6f);
 
         Time.timeScale = 0.0f;
@@ -179,8 +199,26 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(3.0f);
 
-        
         resultPanel.SetActive(true);
+    }
 
+    private void TriggerWarningEffect()
+    {
+        warning.Play();
+        timeTxt.color = new Color(1f, 0.4f, 0.5f);
+
+        blinkTween = timeTxt.DOFade(0f, 0.3f)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine);
+    }
+
+    private void StopWarningEffect()
+    {
+        if (blinkTween != null && blinkTween.IsActive())
+        {
+            blinkTween.Kill();
+            timeTxt.color = originalColor;
+            timeTxt.DOFade(1f, 0f);
+        }
     }
 }
