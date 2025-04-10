@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     public Animator countdownAnim;
     public Animator panelAnim;
-    public AudioSource warning;
 
     private Tween blinkTween;
 
@@ -44,6 +43,11 @@ public class GameManager : MonoBehaviour
 
     private float time;
 
+    AudioSource audioSource;
+    public AudioClip clip;
+    public AudioClip buzor;
+    private AudioManager AudioManager; //오디오 매니저를 호출함
+
 
     private void Awake()
     {
@@ -59,6 +63,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        AudioManager = FindObjectOfType<AudioManager>(); //오디오매니저 찾아서 사용함
         // 전부 초기화
         time = 30.0f;
         originalColor = timeTxt.color;
@@ -82,6 +88,7 @@ public class GameManager : MonoBehaviour
         {
             isWarning = true;
             TriggerWarningEffect();
+            AudioManager.PlayAlert(); //오디오 매니저의 PlayAlert실행
         }
 
         // 게임 Failed
@@ -118,7 +125,8 @@ public class GameManager : MonoBehaviour
         if (firstCard.index == secondCard.index)
         {
             feedbackText.Show("정답!", new Color(255,255,255));
-
+            //정답 Clip 추가
+            audioSource.PlayOneShot(clip);
             // 카드 파괴
             firstCard.DestroyCard();
             secondCard.DestroyCard();
@@ -138,7 +146,8 @@ public class GameManager : MonoBehaviour
         else
         {
             feedbackText.Show("다시!", new Color(255, 255, 255));
-
+            //오답Clip추가
+            audioSource.PlayOneShot(buzor);
             // 카드 닫기
             firstCard.CloseCard();
             secondCard.CloseCard();
@@ -196,9 +205,9 @@ public class GameManager : MonoBehaviour
         textContainer.SetActive(false);
         boardobject.SetActive(false);
 
-        // 소리 stop
+        // 경고효과 stop
         StopWarningEffect();
-        warning.Stop();
+        AudioManager.StopAlert();
 
 
         yield return new WaitForSeconds(0.6f);
@@ -216,7 +225,6 @@ public class GameManager : MonoBehaviour
 
     private void TriggerWarningEffect()
     {
-        warning.Play();
         timeTxt.color = new Color(1f, 0.4f, 0.5f);
 
         blinkTween = timeTxt.DOFade(0f, 0.3f)

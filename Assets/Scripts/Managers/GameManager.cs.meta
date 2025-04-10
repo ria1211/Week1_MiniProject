@@ -3,7 +3,27 @@ guid: 785c4e29edb67104bb925d5a79fee8c3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - countdownAnim: {instanceID: 0}
+  - panelAnim: {instanceID: 0}
+  - warning: {instanceID: 0}
+  - timeTxt: {instanceID: 0}
+  - countdownTxt: {instanceID: 0}
+  - feedbackTxt: {instanceID: 0}
+  - resultTxt: {instanceID: 0}
+  - clearPanel: {instanceID: 0}
+  - failedPanel: {instanceID: 0}
+  - startPanel: {instanceID: 0}
+  - textContainer: {instanceID: 0}
+  - boardobject: {instanceID: 0}
+  - panelcontainer: {instanceID: 0}
+  - resultText: {instanceID: 0}
+  - feedbackText: {instanceID: 0}
+  - firstCard: {instanceID: 0}
+  - secondCard: {instanceID: 0}
+  - board: {instanceID: 0}
+  - clip: {fileID: 8300000, guid: cf1d5e0de04d39e489ed2bc8f120d447, type: 3}
+  - buzor: {fileID: 8300000, guid: fd865a77f4bc22d43bd6046f8048c5de, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
