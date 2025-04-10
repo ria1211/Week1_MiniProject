@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public GameObject boardobject;
     public GameObject panelcontainer;
 
+    public GameObject testBtn;
+
     public ResultText resultText;
     public FeedbackText feedbackText;
     public Card firstCard;
@@ -65,7 +67,6 @@ public class GameManager : MonoBehaviour
 
         // 카운트다운 함수 실행
         StartCoroutine(StartCountdown());
-
     }
 
     private void Update()
@@ -93,6 +94,11 @@ public class GameManager : MonoBehaviour
             canClick = false;
 
             StartCoroutine(GameEnd("GAME OVER", failedPanel));
+        }
+
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            testBtn.SetActive(!testBtn.activeSelf);
         }
     }
 
@@ -232,5 +238,17 @@ public class GameManager : MonoBehaviour
             timeTxt.color = originalColor;
             timeTxt.DOFade(1f, 0f);
         }
+    }
+
+    public void TriggerDebugGameClear()
+    {
+        StartCoroutine(GameEnd("CLEAR!", clearPanel));
+        Debug.Log("DebugLog : Game Clear triggered");
+    }
+
+    public void TriggerDebugGameFailed()
+    {
+        StartCoroutine(GameEnd("GAME OVER", failedPanel));
+        Debug.Log("DebugLog : Game failed triggered");
     }
 }

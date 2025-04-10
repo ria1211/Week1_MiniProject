@@ -36,7 +36,7 @@ public class StageManager : MonoBehaviour
         string[] clearKeys = {
         "StageYA_Clear",
         "StageDE_Clear",
-        "StageKY_Clear",
+        "StageGY_Clear",
         "StageYJ_Clear",
         "StageMJ_Clear"
     };
