@@ -9,9 +9,13 @@ public class StageManager : MonoBehaviour
     public List<Transform> previewObjects;
 
     public Button hiddenBtn;
+    public GameObject testBtn;
 
     void Start()
     {
+
+        int savedIndex = PlayerPrefs.GetInt("LastPlayedIndex", 0);
+        stageSlider.ResetToIndex(savedIndex);
 
         if (!HiddenStageActive()) return;
 
@@ -19,9 +23,18 @@ public class StageManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            testBtn.SetActive(!testBtn.activeSelf);
+        }
+    }
+
     public void LoadCurrentStage()
     {
         int index = stageSlider.GetCurrentIndex();
+        PlayerPrefs.SetInt("LastPlayedIndex", index);
 
         string sceneName = previewObjects[index].name;
         SceneManager.LoadScene(sceneName);
@@ -31,8 +44,7 @@ public class StageManager : MonoBehaviour
     {
         string[] clearKeys = {
         "StageYA_Clear",
-        "StageDE_Clear",
-        "StageKY_Clear",
+        "StageGY_Clear",
         "StageYJ_Clear",
         "StageMJ_Clear"
     };
@@ -49,8 +61,7 @@ public class StageManager : MonoBehaviour
     public void UnlockHiddenStageDebug()
     {
         PlayerPrefs.SetInt("StageYA_Clear", 1);
-        PlayerPrefs.SetInt("StageDE_Clear", 1);
-        PlayerPrefs.SetInt("StageKY_Clear", 1);
+        PlayerPrefs.SetInt("StageGY_Clear", 1);
         PlayerPrefs.SetInt("StageYJ_Clear", 1);
         PlayerPrefs.SetInt("StageMJ_Clear", 1);
 
