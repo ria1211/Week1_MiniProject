@@ -12,6 +12,13 @@ public class Card : MonoBehaviour
 
     public int index = 0;
 
+    AudioSource audioSource;
+    public AudioClip Flip;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // front image setting
     public void Setting(int number)
@@ -29,6 +36,8 @@ public class Card : MonoBehaviour
     // 카드 열기
     public void OpenCard()
     {
+        //카드 뒤집는 음 추가
+        audioSource.PlayOneShot(Flip);
         // 카드 열린 상태 설정
         anim.SetBool("isOpen", true);
 
