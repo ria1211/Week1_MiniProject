@@ -2448,8 +2448,8 @@ MonoBehaviour:
   board: {fileID: 828454243}
   cardCount: 12
   canClick: 1
-  clip: {fileID: 0}
-  buzor: {fileID: 0}
+  clip: {fileID: 8300000, guid: cf1d5e0de04d39e489ed2bc8f120d447, type: 3}
+  buzor: {fileID: 8300000, guid: fd865a77f4bc22d43bd6046f8048c5de, type: 3}
 --- !u!82 &1898397795
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2460,7 +2460,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ad12c198854385f4d8815c4179877cd4, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1

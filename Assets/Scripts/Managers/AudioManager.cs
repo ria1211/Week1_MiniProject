@@ -22,10 +22,17 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
+    private void Start()
     {
         alertSource = GetComponent<AudioSource>();
         alertSource.clip = Alert;
+    }
+
+    private void Update()
+    {
+        // ESC를 눌렀을 때 게임종료
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public void PlayAlert()
@@ -43,4 +50,6 @@ public class AudioManager : MonoBehaviour
             alertSource.Stop();
         }
     }
+
+    
 }
