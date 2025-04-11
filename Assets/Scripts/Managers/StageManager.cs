@@ -44,7 +44,6 @@ public class StageManager : MonoBehaviour
     {
         string[] clearKeys = {
         "StageYA_Clear",
-        "StageDE_Clear",
         "StageGY_Clear",
         "StageYJ_Clear",
         "StageMJ_Clear"
@@ -62,7 +61,6 @@ public class StageManager : MonoBehaviour
     public void UnlockHiddenStageDebug()
     {
         PlayerPrefs.SetInt("StageYA_Clear", 1);
-        PlayerPrefs.SetInt("StageDE_Clear", 1);
         PlayerPrefs.SetInt("StageGY_Clear", 1);
         PlayerPrefs.SetInt("StageYJ_Clear", 1);
         PlayerPrefs.SetInt("StageMJ_Clear", 1);

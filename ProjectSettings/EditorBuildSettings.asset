@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Stages/StageYJ.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 60b2453ff4e3973499917f6e53a35616
   - enabled: 1
     path: Assets/Scenes/SelectStage.unity
     guid: 0b05aa034677d614ca22f7f18f30dc77
@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: fcfbab38929244f4c9f0a312be952d8c
   - enabled: 1
     path: Assets/Scenes/Stages/StageHD.unity
-    guid: 6efa48b83e87fe642846d2eab6145375
+    guid: 71e377b0f30a41241b6c777990c57d05
   - enabled: 1
     path: Assets/Scenes/Stages/StageYA.unity
     guid: 41c2dee3631a2f046b0542c4ba9d9a71
@@ -25,11 +25,11 @@ EditorBuildSettings:
     guid: 5b8a7b7d2d883074999946234d0bee4b
   - enabled: 1
     path: Assets/Scenes/Stages/StageDE.unity
-    guid: becd8de38c6920346ab001d457c2fc25
-  - enabled: 1
+    guid: efeb0cff3e051ea4aaaec2d8fab48053
+  - enabled: 0
     path: Assets/Scenes/Stages/StageGY.unity
-    guid: f2676ba1fb079b64cafb7f93df7acc69
+    guid: fcfbab38929244f4c9f0a312be952d8c
   - enabled: 1
     path: Assets/Scenes/Stages/StageMJ.unity
-    guid: ed162ee09ca1af94d83f89a50ea11877
+    guid: 8c3c57597c4b76149a561b2c5591519a
   m_configObjects: {}

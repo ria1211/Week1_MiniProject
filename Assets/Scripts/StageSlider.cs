@@ -29,7 +29,7 @@ public class StageSlider : MonoBehaviour
 
     public void SlideRight()
     {
-        if (currentIndex < 4)
+        if (currentIndex < 3)
         {
             currentIndex++;
             SlideToCurrent();

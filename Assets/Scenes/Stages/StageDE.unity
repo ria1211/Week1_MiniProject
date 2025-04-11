@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &59661968
 Animator:
   serializedVersion: 5
@@ -1844,7 +1844,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1247572378}
         m_TargetAssemblyTypeName: RetryButton, Assembly-CSharp
-        m_MethodName: Retry
+        m_MethodName: SelectStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2595,7 +2595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1653775835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2741,7 +2741,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownAnim: {fileID: 1484629768}
   panelAnim: {fileID: 59661968}
-  warning: {fileID: 1898397795}
   timeTxt: {fileID: 879830241}
   countdownTxt: {fileID: 1484629766}
   feedbackTxt: {fileID: 1427439520}
@@ -2760,6 +2759,8 @@ MonoBehaviour:
   board: {fileID: 828454243}
   cardCount: 12
   canClick: 1
+  clip: {fileID: 0}
+  buzor: {fileID: 0}
 --- !u!82 &1898397795
 AudioSource:
   m_ObjectHideFlags: 0

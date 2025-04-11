@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public GameObject textContainer;
     public GameObject boardobject;
     public GameObject panelcontainer;
+    public GameObject testBtn;
 
     public ResultText resultText;
     public FeedbackText feedbackText;
@@ -101,6 +102,11 @@ public class GameManager : MonoBehaviour
 
             StartCoroutine(GameEnd("GAME OVER", failedPanel));
         }
+
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            testBtn.SetActive(!testBtn.activeSelf);
+        }
     }
 
     // 게임 시작 함수
@@ -124,7 +130,7 @@ public class GameManager : MonoBehaviour
         // 일치한다면
         if (firstCard.index == secondCard.index)
         {
-            feedbackText.Show("정답!", new Color(255,255,255));
+            feedbackText.Show("정답!", new Color(0.3f, 0.8f, 0.4f));
             //정답 Clip 추가
             audioSource.PlayOneShot(clip);
             // 카드 파괴
@@ -240,5 +246,17 @@ public class GameManager : MonoBehaviour
             timeTxt.color = originalColor;
             timeTxt.DOFade(1f, 0f);
         }
+    }
+    public void TriggerDebugGameClear()
+    {
+        StartCoroutine(GameEnd("CLEAR!", clearPanel));
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Clear", 1);
+        Debug.Log("DebugLog : Game Clear triggered");
+    }
+
+    public void TriggerDebugGameFailed()
+    {
+        StartCoroutine(GameEnd("GAME OVER", failedPanel));
+        Debug.Log("DebugLog : Game failed triggered");
     }
 }
