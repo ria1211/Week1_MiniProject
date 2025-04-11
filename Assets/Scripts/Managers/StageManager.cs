@@ -29,6 +29,9 @@ public class StageManager : MonoBehaviour
         {
             testBtn.SetActive(!testBtn.activeSelf);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public void LoadCurrentStage()
